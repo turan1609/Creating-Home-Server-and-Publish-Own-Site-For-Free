@@ -29,7 +29,7 @@ graph TD
     A[User] -->|https://yusufturan.com.tr| B(Cloudflare Edge)
     B --> C{Cloudflare Tunnel}
 
-    subgraph HomeNetwork
+    subgraph Home_Network
         C --> D[cloudflared Container]
         D --> E[Nginx Proxy Manager Container]
         E -->|/| F[Portfolio Website Container]
