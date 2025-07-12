@@ -26,18 +26,20 @@ This project documents how to turn a standard desktop computer into a secure and
 
 ```mermaid
 graph TD
-    A[User] -->|https://yusufturan.com.tr| B(Cloudflare Edge);
-    B --> C{Cloudflare Tunnel};
-    subgraph Home Network (Origin Server - IP Hidden)
-        C <--> D[cloudflared Container];
-        D --> E[Nginx Proxy Manager Container];
-        E -->|/| F[Portfolio Website Container];
-        E -->|git.domain.com| G[Gitea Container];
-        E -->|app.domain.com| H[Other Projects...];
+    A[User] -->|https://yusufturan.com.tr| B(Cloudflare Edge)
+    B --> C{Cloudflare Tunnel}
+
+    subgraph "Home Network (Origin Server - IP Hidden)"
+        C --> D[cloudflared Container]
+        D --> E[Nginx Proxy Manager Container]
+        E -->|/| F[Portfolio Website Container]
+        E -->|git.domain.com| G[Gitea Container]
+        E -->|app.domain.com| H[Other Projects...]
     end
 
-    style Home Network fill:#f9f,stroke:#333,stroke-width:2px
+    style "Home Network (Origin Server - IP Hidden)" fill:#f9f,stroke:#333,stroke-width:2px
 ```
+
 
 ## 🚀 Setup Instructions
 
