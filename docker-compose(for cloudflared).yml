@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    restart: unless-stopped
+    command: tunnel --no-autoupdate run --token [TOKEN]
+    networks:
+      - proxy
+
+networks:
+  proxy:
+    external: true

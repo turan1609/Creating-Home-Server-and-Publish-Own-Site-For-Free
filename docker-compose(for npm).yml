@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  app:
+    image: 'jc21/nginx-proxy-manager:latest'
+    restart: unless-stopped
+    ports:
+      - '80:80' # Public Http Portu
+      - '443:443' # Public HTTPS Portu
+      - '81:81' # NPM Admin UI Port
+    volumes:
+      - ./data:/data
+      - ./letsencrypt:/etc/letsencrypt
+    networks:
+      - proxy
+networks:
+  proxy:
+    external: true

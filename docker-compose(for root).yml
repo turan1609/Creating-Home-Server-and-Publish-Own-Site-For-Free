@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  portfolio-web:
+    image: nginx:alpine
+    restart: unless-stopped
+    volumes:
+      - ./index.html:/usr/share/nginx/html/index.html
+      - ./style.css:/usr/share/nginx/html/style.css
+      - ./dag-resmi.jpg:/usr/share/nginx/html/dag-resmi.jpg
+    networks:
+      - proxy
+networks:
+  proxy:
+    external: true
