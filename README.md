@@ -138,17 +138,16 @@ Bu proje, standart bir masaüstü bilgisayarın, modern DevOps araçları kullan
 
 ```mermaid
 graph TD
-    A[Kullanıcı] -->|https://yusufturan.com.tr| B(Cloudflare Edge);
-    B --> C{Cloudflare Tunnel};
-    subgraph Ev Ağı (Origin Server - IP Gizli)
-        C <--> D[cloudflared Konteyneri];
-        D --> E[Nginx Proxy Manager Konteyneri];
-        E -->|/| F[Portfolio Sitesi Konteyneri];
-        E -->|git.domain.com| G[Gitea Konteyneri];
-        E -->|app.domain.com| H[Diğer Projeler...];
-    end
+    A[Kullanıcı] -->|https://yusufturan.com.tr| B(Cloudflare Edge)
+    B --> C{Cloudflare Tunnel}
 
-    style Ev Ağı fill:#f9f,stroke:#333,stroke-width:2px
+    subgraph Ev_Agi
+        C --> D[cloudflared Konteyneri]
+        D --> E[Nginx Proxy Manager Konteyneri]
+        E -->|/| F[Portfolio Sitesi Konteyneri]
+        E -->|git.domain.com| G[Gitea Konteyneri]
+        E -->|app.domain.com| H[Diğer Projeler]
+    end
 ```
 
 ## 🚀 Kurulum Adımları
